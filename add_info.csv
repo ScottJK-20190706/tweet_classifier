@@ -1,0 +1,31 @@
+tf,rep_type,weight,calc
+features/df_tweet_tfidf_train.pickle,bow,tfidf,included
+features/df_tweet_tf_train.pickle,bow,tf,included
+features/df_tweet_train.pickle,bow,none,included
+features/df_tweetbio_tfidf_train.pickle,bow,tfidf,included
+features/df_tweetbio_tf_train.pickle,bow,tfidf,included
+features/df_tweetbio_train.pickle,bow,none,included
+features/df_tweet_tfidf_train_nc.pickle,bow,tfidf,included
+features/df_tweet_tf_train_nc.pickle,bow,tf,excluded
+features/df_tweet_train_nc.pickle,bow,none,excluded
+features/df_tweetbio_tfidf_train_nc.pickle,bow,tfidf,excluded
+features/df_tweetbio_tf_train_nc.pickle,bow,tf,excluded
+features/df_tweetbio_train_nc.pickle,bow,none,excluded
+features/df_tweet_count_features_train.pickle,bow,n/a,n/a
+doc2vec inc_calculated,embeddings,n/a,included
+doc2vec exc_calculated,embeddings,n/a,excluded
+gs://dissertation_bucket/fasttext300_cnn,embeddings,n/a,n/a
+gs://dissertation_bucket/glove300_840_cnn,embeddings,n/a,n/a
+gs://dissertation_bucket/w2v_cnn,embeddings,n/a,n/a
+rnn_w2v,embeddings,n/a,n/a
+rnn_glove,embeddings,n/a,n/a
+rnn_fasttext,embeddings,n/a,n/a
+bert,embeddings,n/a,n/a
+fasttext_300_sum,embeddings,n/a,excluded
+fasttext_300_sum_plusCounts,embeddings,n/a,included
+glove_300_sum,embeddings,n/a,excluded
+glove_300_sum_plusCounts,embeddings,n/a,included
+glove_twitter200_sum,embeddings,n/a,excluded
+glove_twitter200_sum_plusCounts,embeddings,n/a,included
+w2v_300_sum,embeddings,n/a,excluded
+w2v_300_sum_plusCounts,embeddings,n/a,included
