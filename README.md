@@ -73,4 +73,54 @@
   </ul>
   <p>A file containing the calculated values for each of these features for each tweet is then saved as 'features/count_features/count_features.pickle'</p></br>
   
-  
+<h3>08_feature_importance_tfidf</h3>
+<p>Many features have been created by this stage.  This file performs a chi-squared test and correlation analysis in order to remove features with little discriminative power.  TF weighting, TFIDF weighting, and frequency count calculations are then made in order to transform the tweets into a range of VSM arrays covering the 3 weighting strategies.  Additional VSM arrays are created where the deatures from the "bio" field are included also.  Finally VSM arrays with and without the calculated features are created</p></br>
+
+<h3>09_classify</h3>
+<p>This file performs the "classic vector space" experiments.  The results of the experiments are saved in 'results/metrics_local.pickle' and can be found in appx. 2 of the dissertation.  The 13 files created in the previous experiment are loaded and split into the predefined training and evaluation datasets.  The training and evaluation is then performed using a range of "classic" classifiers"</p></br>
+
+<h3>10_doc2vec</h3>
+<p>The training and evaluation datasets are merged and the tweet texts are tokenized.  The doc2vec algorithm from the gensim library is then executed over the tweet texts of the merged dataset.  The resulting vectors for each tweet are then used to create a VSM array for both the training and evaluation datasets (two versions of each were created, one with the calculated features and one without).  A range of classic classifiers are then trained and evaluated.  The results are saved under the experiment category of "classic embeddings"</p></br>
+
+<h3>11_COLAB_classify_embeddings_fasttext</h3>
+<p>Pre-trained 300d fasttext word embeddings are loaded using the "chakin" module.  The training and evaluation datasets are tokenized and the corresponding embedding is matched to each token in each tweet.  The embeddings are then summed over each tweet to create a single 300d vector per tweet.  A 312d vector is also created for each tweet by joining the calculated features.  The resulting vectors for each tweet are then used to create a VSM array for both the training and evaluation datasets (two versions of each were created, one with the calculated features and one without).  A range of classic classifiers are then trained and evaluated.  The results are saved under the experiment category of "classic embeddings"</p></br>
+
+<h3>12_COLAB_classify_embeddings_glove_twitter</h3>
+<p>Pre-trained 200d GloVe word embeddings are loaded using the "chakin" module.  The training and evaluation datasets are tokenized and the corresponding embedding is matched to each token in each tweet.  The embeddings are then summed over each tweet to create a single 200d vector per tweet.  A 212d vector is also created for each tweet by joining the calculated features.  The resulting vectors for each tweet are then used to create a VSM array for both the training and evaluation datasets (two versions of each were created, one with the calculated features and one without).  A range of classic classifiers are then trained and evaluated.  The results are saved under the experiment category of "classic embeddings"</p></br>
+
+<h3>13_COLAB_classify_embeddings_glove</h3>
+<p>Pre-trained 300d GloVe word embeddings are loaded using the "chakin" module.  The training and evaluation datasets are tokenized and the corresponding embedding is matched to each token in each tweet.  The embeddings are then summed over each tweet to create a single 300d vector per tweet.  A 312d vector is also created for each tweet by joining the calculated features.  The resulting vectors for each tweet are then used to create a VSM array for both the training and evaluation datasets (two versions of each were created, one with the calculated features and one without).  A range of classic classifiers are then trained and evaluated.  The results are saved under the experiment category of "classic embeddings"</p></br>
+
+<h3>14_COLAB_classify_embeddings_w2v</h3>
+<p>Pre-trained 300d word2vec word embeddings are loaded using the "chakin" module.  The training and evaluation datasets are tokenized and the corresponding embedding is matched to each token in each tweet.  The embeddings are then summed over each tweet to create a single 300d vector per tweet.  A 312d vector is also created for each tweet by joining the calculated features.  The resulting vectors for each tweet are then used to create a VSM array for both the training and evaluation datasets (two versions of each were created, one with the calculated features and one without).  A range of classic classifiers are then trained and evaluated.  The results are saved under the experiment category of "classic embeddings"</p></br>
+
+<h3>15_COLAB_cnn_fasttext_300</h3>
+<p>Pre-trained 300d fasttext word embeddings are loaded using the "chakin" module.  The training and evaluation datasets are tokenized and the corresponding embedding is matched to each token in each tweet.  An array for each tweet is then created by stacking the vectors on top of each other.  Each array for each tweet has dimensions 40 x 300.  If a tweet has less than 40 tokens then the remaining rows of its array are filled with zeros.  A CNN is then trained and evaluated using the corresponding arrays that have been constructed for each instance by this process.  The results of these experiments are saved under the category of "CNN embeddings"</p></br>  
+
+<h3>16_COLAB_cnn_glove300_840</h3>
+<p>Pre-trained 300d GloVe word embeddings are loaded using the "chakin" module.  The training and evaluation datasets are tokenized and the corresponding embedding is matched to each token in each tweet.  An array for each tweet is then created by stacking the vectors on top of each other.  Each array for each tweet has dimensions 40 x 300.  If a tweet has less than 40 tokens then the remaining rows of its array are filled with zeros.  A CNN is then trained and evaluated using the corresponding arrays that have been constructed for each instance by this process.  The results of these experiments are saved under the category of "CNN embeddings"</p></br>
+
+<h3>17_COLAB_cnn_w2v</h3>
+<p>Pre-trained 300d word2vec word embeddings are loaded using the "chakin" module.  The training and evaluation datasets are tokenized and the corresponding embedding is matched to each token in each tweet.  An array for each tweet is then created by stacking the vectors on top of each other.  Each array for each tweet has dimensions 40 x 300.  If a tweet has less than 40 tokens then the remaining rows of its array are filled with zeros.  A CNN is then trained and evaluated using the corresponding arrays that have been constructed for each instance by this process.  The results of these experiments are saved under the category of "CNN embeddings"</p></br>
+
+<h3>18_COLAB_rnn_w2v</h3>
+<p>300d word2vec embeddings are obtained from the "chakin" module.  The vocabulary of tokens in the twitter dataset is then used to create an embedding layer for input to the GRU RNN.  Each token in each tweet is then assigned a number depending on the position of its corresponding embedding in the embedding layer.  The GRU RNN is created with a many-to-one architecture and training is performed over 25 epochs prior to evaluation.  The results of these experiments are saved under the category of "RNN embeddings".<p></br>
+
+<h3>19_COLAB_rnn_glove</h3>
+<p>300d GloVe embeddings are obtained from the "chakin" module.  The vocabulary of tokens in the twitter dataset is then used to create an embedding layer for input to the GRU RNN.  Each token in each tweet is then assigned a number depending on the position of its corresponding embedding in the embedding layer.  The GRU RNN is created with a many-to-one architecture and training is performed over 25 epochs prior to evaluation.  The results of these experiments are saved under the category of "RNN embeddings".<p></br>
+
+<h3>20_COLAB_rnn_fasttext</h3>
+<p>300d FastText embeddings are obtained from the "chakin" module.  The vocabulary of tokens in the twitter dataset is then used to create an embedding layer for input to the GRU RNN.  Each token in each tweet is then assigned a number depending on the position of its corresponding embedding in the embedding layer.  The GRU RNN is created with a many-to-one architecture and training is performed over 25 epochs prior to evaluation.  The results of these experiments are saved under the category of "RNN embeddings".<p></br>
+
+<h3>21_COLAB_bert_large_classifier</h3>
+<p>The pretrained large BERT model is loaded from the tensorflow hub (Google).  The training and evaluation datasets are tokenized by the BERT tokenizer.  The training set is then fed into the BERT model and it is fine tuned over 3 epochs.  The valuation dataset is then fed into the fine tuned model and the predictions are compared against the actual values to create metrics.  the results of these experiments are saved under the cetagory of "BERT".<p></br>
+
+<h3>22_COLAB_bert_base_classifier</h3>
+<p>The pretrained base BERT model is loaded from the tensorflow hub (Google).  The training and evaluation datasets are tokenized by the BERT tokenizer.  The training set is then fed into the BERT model and it is fine tuned over 3 epochs.  The valuation dataset is then fed into the fine tuned model and the predictions are compared against the actual values to create metrics.  the results of these experiments are saved under the cetagory of "BERT".<p></br>
+
+<h3>23_COLAB_bert_large_assess</h3>
+<p>10 folds cross validation is performed over the entire dataset using the large BERT model in order to obtain 10 sets of results.  These results are to be used in a statistical test to comapre BERT against GRU RNN</p></br>
+
+<h3>24_COLAB_rnn_glove_assess</h3>
+<p>10 folds cross validation is performed over the entire dataset using the GRU RNN model with a 300d GloVe input embedding array in order to obtain 10 sets of results.  These results are to be used in a statistical test to comapre BERT against GRU RNN</p></br>
+
