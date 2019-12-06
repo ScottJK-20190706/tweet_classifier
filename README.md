@@ -1,2 +1,2 @@
 # tweet_classifier
-Classifier for identifying hate speech on Twitter
+The files in this repository represent coding that was done with the aim of building a classifier for detecting offensive tweets.  If this repository is cloned then all of the files should run "as is" with the exception of those files that have "COLAB" in the title.  The "COLAB" notebooks were written on the Google Colab platform to take advantage of the additional RAM and processing power being offered by Google.  If these files are to be run then the directories in the code for reading and writing files will need to be updated by the user
