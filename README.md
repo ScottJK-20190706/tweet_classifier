@@ -54,7 +54,7 @@
 <p>features/bio_word_[n]grams/</p>
 <p>the tweets are processed in batches of 500 due to memory issues</p></br>
 
-<h3>07d_bio_word_ngrams</h3>
+<h3>07e_counts</h3>
 <p>The training and evaluation datasets are recombined.  For each tweet the following features are calculated.  These features are referred to as the "calculated" features in the dissertation</p><ul>
   <li>Count of tokens</li>
   <li>Ave chars per token</li>
@@ -76,7 +76,7 @@
   <p>A file containing the calculated values for each of these features for each tweet is then saved as 'features/count_features/count_features.pickle'</p></br>
   
 <h3>08_feature_importance_tfidf</h3>
-<p>Many features have been created by this stage.  This file performs a chi-squared test and correlation analysis in order to remove features with little discriminative power.  TF weighting, TFIDF weighting, and frequency count calculations are then made in order to transform the tweets into a range of VSM arrays covering the 3 weighting strategies.  Additional VSM arrays are created where the deatures from the "bio" field are included also.  Finally VSM arrays with and without the calculated features are created</p></br>
+<p>Many features have been created by this stage.  This file performs a chi-squared test and correlation analysis in order to remove features with little discriminative power.  TF weighting, TFIDF weighting, and frequency count calculations are then made in order to transform the tweets into a range of VSM arrays covering the 3 weighting strategies.  Additional VSM arrays are created where the features from the "bio" field are included also.  Finally BOW VSM arrays with and without the calculated features are created</p></br>
 
 <h2>Classic Vector Space experiments</h2>
 <h3>09_classify</h3>
@@ -120,10 +120,10 @@
 
 <h2>BERT experiments</h2>
 <h3>21_COLAB_bert_large_classifier</h3>
-<p>The pretrained large BERT model is loaded from the tensorflow hub (Google).  The training and evaluation datasets are tokenized by the BERT tokenizer.  The training set is then fed into the BERT model and it is fine tuned over 3 epochs.  The valuation dataset is then fed into the fine tuned model and the predictions are compared against the actual values to create metrics.  the results of these experiments are saved under the cetagory of "BERT".<p></br>
+<p>The pretrained large BERT model is loaded from the tensorflow hub (Google).  The training and evaluation datasets are tokenized by the BERT tokenizer.  The training set is then fed into the BERT model and it is fine tuned over 3 epochs.  The evaluation dataset is then fed into the fine tuned model and the predictions are compared against the actual values to create metrics.  The results of these experiments are saved under the cetagory of "BERT".<p></br>
 
 <h3>22_COLAB_bert_base_classifier</h3>
-<p>The pretrained base BERT model is loaded from the tensorflow hub (Google).  The training and evaluation datasets are tokenized by the BERT tokenizer.  The training set is then fed into the BERT model and it is fine tuned over 3 epochs.  The valuation dataset is then fed into the fine tuned model and the predictions are compared against the actual values to create metrics.  the results of these experiments are saved under the cetagory of "BERT".<p></br>
+<p>The pretrained base BERT model is loaded from the tensorflow hub (Google).  The training and evaluation datasets are tokenized by the BERT tokenizer.  The training set is then fed into the BERT model and it is fine tuned over 3 epochs.  The evaluation dataset is then fed into the fine tuned model and the predictions are compared against the actual values to create metrics.  The results of these experiments are saved under the cetagory of "BERT".<p></br>
 
 <h2>10 folds cross validation results</h2>
 <h3>23_COLAB_bert_large_assess</h3>
